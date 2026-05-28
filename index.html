@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title data-lang="pageTitle">Cave Timeline Map</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ol@latest/ol.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div id="map"></div>
+
+    <div id="logo-overlay">
+        <img src="drp_logo_small_b.png" alt="DRP Logo">
+    </div>
+
+    <div id="year-overlay">1990</div>
+
+    <div id="timeline-panel">
+
+        <div class="timeline-info">
+            <strong data-lang="date">Date:</strong>
+            <span id="current-date"></span>
+
+            |
+
+            <strong data-lang="caves">Caves:</strong>
+            <span id="cave-count"></span>
+        </div>
+
+        <input id="date-slider" type="range">
+
+        <div class="main-controls">
+
+            <button id="play-button" data-lang="play">
+                ▶ Play
+            </button>
+
+            <label>
+                <span data-lang="mode">Mode:</span>
+
+                <select id="visual-mode-select">
+                    <option value="dots" data-lang="dots">Dots</option>
+                    <option value="heatmap" data-lang="heatmap">Heatmap</option>
+                    <option value="both" data-lang="both">Both</option>
+                </select>
+            </label>
+
+            <label>
+                <span data-lang="years">Years:</span>
+
+                <select id="years-select">
+                    <option value="1">1</option>
+                    <option value="5">5</option>
+                    <option value="10">10</option>
+                </select>
+            </label>
+
+            <label>
+                <span data-lang="per">Per:</span>
+
+                <select id="interval-select">
+                    <option value="62.5" data-lang="oneSixteenthSecond">
+                        1/16 second
+                    </option>
+
+                    <option value="125" data-lang="oneEighthSecond">
+                        1/8 second
+                    </option>
+
+                    <option value="250" data-lang="oneQuarterSecond">
+                        1/4 second
+                    </option>
+
+                    <option value="500" data-lang="oneHalfSecond">
+                        1/2 second
+                    </option>
+
+                    <option value="1000" selected data-lang="oneSecond">
+                        1 second
+                    </option>
+                </select>
+            </label>
+
+            <label>
+                <span data-lang="layer">Layer:</span>
+
+                <select id="layer-select">
+                    <option value="osm" data-lang="osm">OSM</option>
+                    <option value="ortho" data-lang="ortho">Ortho</option>
+                    <option value="hybrid" data-lang="hybrid">Hybrid</option>
+                </select>
+            </label>
+
+            <button id="display-settings-button" data-lang="display">
+                Display
+            </button>
+
+            <button id="style-settings-button" data-lang="style">
+                Style
+            </button>
+
+            <button id="export-settings-button" data-lang="export">
+                Export
+            </button>
+
+            |
+
+            <button id="about-button" data-lang="about">
+                About
+            </button>
+
+            <button id="language-button" data-lang="english">
+                English
+            </button>
+
+        </div>
+
+        <div id="display-settings" class="settings-drawer hidden">
+
+            <label>
+                <input id="logo-toggle" type="checkbox" checked>
+                <span data-lang="logo">Logo</span>
+            </label>
+
+            <label>
+                <input id="year-toggle" type="checkbox" checked>
+                <span data-lang="year">Year</span>
+            </label>
+
+            <label>
+                <input id="slovenia-only-toggle" type="checkbox">
+                <span data-lang="onlySlovenia">Only Slovenia</span>
+            </label>
+
+        </div>
+
+        <div id="style-settings" class="settings-drawer hidden">
+
+            <label>
+                <span data-lang="size">Size:</span>
+                <input id="radius-input" type="range" min="1" max="10" value="2">
+            </label>
+
+            <label>
+                <span data-lang="stroke">Stroke:</span>
+                <input id="stroke-input" type="range" min="0" max="5" value="0">
+            </label>
+
+            <label>
+                <span data-lang="fill">Fill:</span>
+                <input id="fill-color-input" type="color" value="#ff5000">
+            </label>
+
+            <label>
+                <span data-lang="border">Border:</span>
+                <input id="stroke-color-input" type="color" value="#ffffff">
+            </label>
+
+            |
+
+            <label>
+                <span data-lang="heatRadius">Heat radius:</span>
+                <input id="heat-radius-input" type="range" min="2" max="30" value="8">
+            </label>
+
+            <label>
+                <span data-lang="heatBlur">Heat blur:</span>
+                <input id="heat-blur-input" type="range" min="5" max="40" value="15">
+            </label>
+
+            |
+
+            <label>
+                <span data-lang="maskTransparency">Mask transparency:</span>
+                <input id="mask-opacity-input" type="range" min="0" max="100" value="85">
+            </label>
+
+            |
+
+            <label>
+                <span data-lang="yearColor">Year color:</span>
+
+                <select id="year-color-select">
+                    <option value="black" data-lang="black">Black</option>
+                    <option value="white" data-lang="white">White</option>
+                </select>
+            </label>
+
+            <label>
+                <span data-lang="yearTransparency">Year transparency:</span>
+                <input id="year-opacity-input" type="range" min="0" max="100" value="45">
+            </label>
+
+            |
+
+            <label>
+                <span data-lang="logoStyle">Logo style:</span>
+
+                <select id="logo-color-select">
+                    <option value="black" data-lang="black">Black</option>
+                    <option value="white" data-lang="white">White</option>
+                </select>
+            </label>
+
+        </div>
+
+        <div id="export-settings" class="settings-drawer hidden">
+
+            <button id="export-button" data-lang="exportImage">
+                Export image
+            </button>
+
+            <button id="export-video-button" data-lang="exportVideo">
+                Export video
+            </button>
+
+        </div>
+
+    </div>
+
+    <div id="about-modal" class="custom-modal hidden">
+
+        <div class="custom-modal-content">
+
+            <button id="about-close-button" class="modal-close">
+                ×
+            </button>
+
+            <h2 data-lang="aboutTitle">
+                About
+            </h2>
+
+            <p data-lang="aboutText">
+                This interactive map shows the development of registered caves in Slovenia through time.
+                The timeline can be played automatically or explored manually by date.
+                The visualization is based on cave registry data and can be displayed as points, heatmap, or both.
+            </p>
+
+        </div>
+
+    </div>
+
+    <div id="custom-attribution">
+
+        <span data-lang="attributionOsm">
+            © OpenStreetMap contributors
+        </span>
+
+        |
+
+        <span data-lang="attributionEsri">
+            Esri
+        </span>
+
+        |
+
+        <a href="https://www.jamarska-zveza.si/" target="_blank" data-lang="attributionJzs">
+            JZS
+        </a>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/ol@latest/dist/ol.js"></script>
+    <script src="translations.js"></script>
+    <script src="app.js"></script>
+
+</body>
+
+</html>

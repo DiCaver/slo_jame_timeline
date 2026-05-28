@@ -1,0 +1,21 @@
+# Virtual environment
+.venv/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Environment files
+.env
+
+# Excel source files
+data/*.xlsx
+
+# Private/local scripts
+excel_to_geojson.py
+
+# VS Code
+.vscode/
+
+# macOS
+.DS_Store
