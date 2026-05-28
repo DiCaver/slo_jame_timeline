@@ -1,0 +1,179 @@
+/* =========================================================
+   1. Base layout
+   ========================================================= */
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Arial, sans-serif;
+}
+
+
+/* =========================================================
+   2. Map
+   ========================================================= */
+
+#map {
+    width: 100%;
+    height: 100vh;
+}
+
+
+/* =========================================================
+   3. Main overlays
+   ========================================================= */
+
+#logo-overlay {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    z-index: 1000;
+}
+
+#logo-overlay img {
+    display: block;
+    width: 90px;
+    height: auto;
+}
+
+#year-overlay {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    font-size: 64px;
+    font-weight: 700;
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   4. Timeline panel
+   ========================================================= */
+
+#timeline-panel {
+    position: absolute;
+    left: 30px;
+    right: 30px;
+    bottom: 30px;
+    z-index: 1000;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.75);
+    border-radius: 12px;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.25);
+}
+
+.timeline-info {
+    font-size: 14px;
+}
+
+#date-slider {
+    width: 100%;
+    margin-top: 12px;
+}
+
+
+/* =========================================================
+   5. Controls
+   ========================================================= */
+
+.main-controls,
+.settings-drawer {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+button,
+select {
+    padding: 6px 10px;
+}
+
+label {
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   6. Settings drawers
+   ========================================================= */
+
+.settings-drawer {
+    padding-top: 10px;
+    border-top: 1px solid #ddd;
+}
+
+.hidden {
+    display: none;
+}
+
+
+/* =========================================================
+   7. Modal
+   ========================================================= */
+
+.custom-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 3000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.35);
+}
+
+.custom-modal.hidden {
+    display: none;
+}
+
+.custom-modal-content {
+    position: relative;
+    max-width: 520px;
+    padding: 24px;
+    background: white;
+    border-radius: 14px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+    line-height: 1.5;
+}
+
+.modal-close {
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    border: 0;
+    background: transparent;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   8. Attribution
+   ========================================================= */
+
+#custom-attribution {
+    position: absolute;
+    right: 10px;
+    bottom: 5px;
+    z-index: 1000;
+    padding: 3px 8px;
+    font-size: 11px;
+    color: #444;
+    background: rgba(255, 255, 255, 0.75);
+    border-radius: 6px;
+    backdrop-filter: blur(3px);
+}
+
+#custom-attribution a {
+    color: inherit;
+    text-decoration: none;
+}
+
+#custom-attribution a:hover {
+    text-decoration: underline;
+}

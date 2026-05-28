@@ -1,0 +1,125 @@
+const translations = {
+  en: {
+    pageTitle: "Cave Timeline Map",
+    date: "Date:",
+    caves: "Caves:",
+    play: "▶ Play",
+    pause: "⏸ Pause",
+    mode: "Mode:",
+    dots: "Dots",
+    heatmap: "Heatmap",
+    both: "Both",
+    years: "Years:",
+    per: "Per:",
+    oneSixteenthSecond: "1/16 second",
+    oneEighthSecond: "1/8 second",
+    oneQuarterSecond: "1/4 second",
+    oneHalfSecond: "1/2 second",
+    oneSecond: "1 second",
+    layer: "Layer:",
+    osm: "OSM",
+    ortho: "Ortho",
+    hybrid: "Hybrid",
+    display: "Display",
+    style: "Style",
+    export: "Export",
+    about: "About",
+    english: "English",
+    slovenian: "Slovenščina",
+    logo: "Logo",
+    year: "Year",
+    onlySlovenia: "Only Slovenia",
+    size: "Size:",
+    stroke: "Stroke:",
+    fill: "Fill:",
+    border: "Border:",
+    heatRadius: "Heat radius:",
+    heatBlur: "Heat blur:",
+    maskTransparency: "Mask transparency:",
+    yearColor: "Year color:",
+    yearTransparency: "Year transparency:",
+    logoStyle: "Logo style:",
+    black: "Black",
+    white: "White",
+    exportImage: "Export image",
+    exportVideo: "Export video",
+    exporting: "Exporting...",
+    aboutTitle: "About",
+    aboutText: `
+  This interactive map visualizes the development of registered caves in Slovenia through time.
+  Cave locations can be explored manually by date or animated as a timeline using points,
+  heatmaps, or combined visualization modes.
+  <br><br>
+  The project is based on cave registry data (JZS 2025a) and was created as a lightweight interactive
+  web visualization using OpenLayers, GeoJSON, and vanilla JavaScript.
+  <br><br>
+  Author: <a href="mailto:marko@zakrajsek.org"><strong>Marko Zakrajšek</strong></a><br>
+  GitHub: <a href="https://github.com/DiCaver/slo_jame_timeline" target="_blank">slo_jame_timeline</a>
+`,
+    attributionOsm: "© OpenStreetMap contributors",
+    attributionEsri: "Esri",
+    attributionJzs: "JZS",
+  },
+
+  sl: {
+    pageTitle: "Časovni zemljevid jam",
+    date: "Datum:",
+    caves: "Jame:",
+    play: "▶ Predvajaj",
+    pause: "⏸ Premor",
+    mode: "Način:",
+    dots: "Točke",
+    heatmap: "Toplotni prikaz",
+    both: "Oboje",
+    years: "Let:",
+    per: "Na:",
+    oneSixteenthSecond: "1/16 sekunde",
+    oneEighthSecond: "1/8 sekunde",
+    oneQuarterSecond: "1/4 sekunde",
+    oneHalfSecond: "1/2 sekunde",
+    oneSecond: "1 sekundo",
+    layer: "Podlaga:",
+    osm: "OSM",
+    ortho: "Ortofoto",
+    hybrid: "Hibrid",
+    display: "Prikaz",
+    style: "Slog",
+    export: "Izvoz",
+    about: "O projektu",
+    english: "English",
+    slovenian: "Slovenščina",
+    logo: "Logotip",
+    year: "Leto",
+    onlySlovenia: "Samo Slovenija",
+    size: "Velikost:",
+    stroke: "Obroba:",
+    fill: "Polnilo:",
+    border: "Rob:",
+    heatRadius: "Radij toplote:",
+    heatBlur: "Zameglitev toplote:",
+    maskTransparency: "Prosojnost maske:",
+    yearColor: "Barva leta:",
+    yearTransparency: "Prosojnost leta:",
+    logoStyle: "Slog logotipa:",
+    black: "Črna",
+    white: "Bela",
+    exportImage: "Izvozi sliko",
+    exportVideo: "Izvozi video",
+    exporting: "Izvažanje...",
+    aboutTitle: "O projektu",
+    aboutText: `
+  Interaktivni zemljevid prikazuje razvoj registriranih jam v Sloveniji skozi čas.
+  Lokacije jam je mogoče raziskovati ročno po datumu ali jih predvajati kot časovnico
+  s točkami, toplotnim prikazom ali kombiniranim načinom prikaza.
+  <br><br>
+  Projekt temelji na podatkih registra jam (JZS 2025a) in je bil izdelan kot lahka interaktivna
+  spletna vizualizacija z uporabo OpenLayers, GeoJSON in vanilla JavaScript.
+  <br><br>
+  Avtor: <a href="mailto:marko@zakrajsek.org"><strong>Marko Zakrajšek</strong></a><br>
+  GitHub: <a href="https://github.com/DiCaver/slo_jame_timeline" target="_blank">slo_jame_timeline</a>
+`,
+    attributionOsm: "© OpenStreetMap contributors",
+    attributionEsri: "Esri",
+    attributionJzs: "JZS",
+  },
+};
