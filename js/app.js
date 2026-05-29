@@ -260,6 +260,7 @@ function formatIsoDate(date) {
    ========================================================= */
 
 function startAnimation() {
+  logExport("play");
   isPlaying = true;
   playButton.textContent = t("pause");
   const yearsStep = Number(yearsSelect.value);
@@ -401,6 +402,7 @@ function sleep(ms) {
    ========================================================= */
 
 function exportImage() {
+  logExport("image");
   map.once("rendercomplete", () => {
     const mapCanvas = document.createElement("canvas");
     const size = map.getSize();
@@ -425,6 +427,7 @@ function exportImage() {
 
 async function exportVideo() {
   stopAnimation();
+  logExport("video");
   exportVideoButton.disabled = true;
   exportVideoButton.textContent = t("exporting");
   const originalDate = new Date(currentDate);
@@ -621,7 +624,23 @@ aboutModal.addEventListener("click", (event) => {
 languageButton.addEventListener("click", toggleLanguage);
 
 /* =========================================================
-   17. INITIALIZATION
+   17. LOG EXPORT
+   ========================================================= */
+
+function logExport(type) {
+  fetch("log-export.php", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+    body: `type=${encodeURIComponent(type)}`,
+  }).catch(() => {
+    console.warn("Export logging failed.");
+  });
+}
+
+/* =========================================================
+   18. INITIALIZATION
    ========================================================= */
 
 applyTranslations();
