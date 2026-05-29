@@ -66,7 +66,9 @@ Projekt uporablja:
 │   └── translations.js
 │
 ├── excel_to_geojson.py (ni del tega repozitorija)
+├── export-log.json
 ├── index.html
+├── log-export.php
 └── README.md
 ```
 
