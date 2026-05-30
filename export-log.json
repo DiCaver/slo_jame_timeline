@@ -1,20 +1,21 @@
 {
-    "play": 1222,
-    "image": 25,
-    "video": 7,
+    "comment": "Bottom lines are just empty examples of saved components, not actual usage data. This line is not part of the data.",
+    "play": 0,
+    "image": 0,
+    "video": 0,
     "play_settings": {
-        "mode=dots|years=5|per=125": 1,
-        "mode=dots|years=1|per=125": 1,
-        "mode=dots|years=1|per=62.5": 1,
-        "mode=heatmap|years=1|per=62.5": 2,
-        "mode=both|years=10|per=500": 1,
-        "mode=dots|years=5|per=125|layer=osm": 1,
-        "mode=heatmap|years=10|per=1000|layer=hybrid": 1,
-        "mode=dots|years=5|per=1000|layer=osm": 1,
-        "mode=both|years=5|per=1000|layer=osm": 1
+        "mode=dots|years=5|per=125": 0,
+        "mode=dots|years=1|per=125": 0,
+        "mode=dots|years=1|per=62.5": 0,
+        "mode=heatmap|years=1|per=62.5": 0,
+        "mode=both|years=10|per=500": 0,
+        "mode=dots|years=5|per=125|layer=osm": 0,
+        "mode=heatmap|years=10|per=1000|layer=hybrid": 0,
+        "mode=dots|years=5|per=1000|layer=osm": 0,
+        "mode=both|years=5|per=1000|layer=osm": 0
     },
     "languages": {
-        "sl": 5,
-        "en": 1
+        "sl": 0,
+        "en": 0
     }
 }
