@@ -15,7 +15,9 @@ $file = __DIR__ . '/export-log.json';
 $data = [
     'play' => 0,
     'image' => 0,
-    'video' => 0
+    'video' => 0,
+    'play_settings' => [],
+    'languages' => []
 ];
 
 if (file_exists($file)) {
@@ -28,6 +30,33 @@ if (file_exists($file)) {
 }
 
 $data[$type]++;
+
+if ($type === 'play') {
+
+    $mode = $_POST['mode'] ?? 'unknown';
+    $years = $_POST['years'] ?? 'unknown';
+    $per = $_POST['per'] ?? 'unknown';
+    $layer = $_POST['layer'] ?? 'unknown';
+    $language = $_POST['language'] ?? 'unknown';
+
+    $key =
+        "mode={$mode}" .
+        "|years={$years}" .
+        "|per={$per}" .
+        "|layer={$layer}";
+
+    if (!isset($data['play_settings'][$key])) {
+        $data['play_settings'][$key] = 0;
+    }
+
+    $data['play_settings'][$key]++;
+
+    if (!isset($data['languages'][$language])) {
+        $data['languages'][$language] = 0;
+    }
+
+    $data['languages'][$language]++;
+}
 
 $result = file_put_contents(
     $file,
