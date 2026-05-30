@@ -628,14 +628,23 @@ languageButton.addEventListener("click", toggleLanguage);
    ========================================================= */
 
 function logExport(type) {
+  const body = new URLSearchParams();
+
+  body.append("type", type);
+
+  if (type === "play") {
+    body.append("mode", visualModeSelect.value);
+    body.append("years", yearsSelect.value);
+    body.append("per", intervalSelect.value);
+    body.append("layer", layerSelect.value);
+    body.append("language", currentLanguage);
+  }
+
   fetch("log-export.php", {
     method: "POST",
-    headers: {
-      "Content-Type": "application/x-www-form-urlencoded",
-    },
-    body: `type=${encodeURIComponent(type)}`,
+    body: body,
   }).catch(() => {
-    console.warn("Export logging failed.");
+    console.warn("Logging failed.");
   });
 }
 
