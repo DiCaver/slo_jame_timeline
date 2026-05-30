@@ -66,9 +66,9 @@ Projekt uporablja:
 │   └── translations.js
 │
 ├── excel_to_geojson.py (ni del tega repozitorija)
-├── export-log.json
+├── export-log.json (ustvari se samodejno ob prvi uporabi)
 ├── index.html
-├── log-export.php
+├── log-export.php (ni potreben za lokalni ogled)
 └── README.md
 ```
 
@@ -96,6 +96,8 @@ Primer z Visual Studio Code:
 3. Izberi:
    * `Open with Live Server`
 
+Opomba: beleženje statistike uporabe (`log-export.php`) deluje samo na strežniku s podporo za PHP. Pri uporabi VS Code Live Server razširitve beleženje ni na voljo.
+
 ## Izvoz
 
 ### Izvoz slike
@@ -119,6 +121,56 @@ Video vključuje:
 * letnico (*omogoča vklop/izklop*)
 * logotip (*omogoča vklop/izklop*)
 * trenutne vizualne nastavitve
+
+## Statistika uporabe
+
+Projekt vključuje preprost sistem beleženja uporabe, ki temelji na PHP skripti `log-export.php` in datoteki `export-log.json`.
+
+Beležijo se naslednji dogodki:
+
+* število zagonov animacije (*Play*)
+* število izvozov slik (*PNG*)
+* število izvozov videov (*WEBM*)
+
+Ob zagonu animacije se dodatno beležijo tudi izbrane nastavitve uporabnika:
+
+* način prikaza:
+
+  * točke
+  * heatmap
+  * oboje
+* korak animacije (leta)
+* hitrost animacije
+* izbrana podlaga:
+
+  * OpenStreetMap
+  * ortofoto
+  * hibridni prikaz
+* izbran jezik uporabniškega vmesnika
+
+Podatki se ne beležijo na ravni posameznega uporabnika in ne vsebujejo osebnih podatkov. Namen beleženja je zgolj pridobiti osnovno statistiko uporabe ter ugotoviti, katere funkcionalnosti in nastavitve obiskovalci najpogosteje uporabljajo.
+
+Primer datoteke `export-log.json`:
+
+```json
+{
+  "play": 1234,
+  "image": 56,
+  "video": 12,
+
+  "languages": {
+    "sl": 1180,
+    "en": 54
+  },
+
+  "play_settings": {
+    "mode=both|years=5|per=250|layer=hybrid": 412,
+    "mode=heatmap|years=1|per=1000|layer=ortho": 198,
+    "mode=dots|years=10|per=500|layer=osm": 87
+  }
+}
+```
+
 
 ## Avtor
 
